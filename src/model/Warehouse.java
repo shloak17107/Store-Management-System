@@ -1,3 +1,4 @@
+package model;
 
 import java.util.*;
 
@@ -62,7 +63,7 @@ public class Warehouse {
 	 * @param store 
 	 * @param records
 	 */
-	public void sendProducts(Store store, record records) {
+	public void sendProducts(Store store, Record records) {
 		// TODO implement here
 	}
 

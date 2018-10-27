@@ -1,10 +1,11 @@
+package model;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Product {
+public class Product <T> {
 
 	/**
 	 * Default constructor
@@ -45,7 +46,7 @@ public class Product {
 	/**
 	 * 
 	 */
-	private <T> location;
+	private T location;
 
 	/**
 	 * 
