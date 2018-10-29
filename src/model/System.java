@@ -1,3 +1,5 @@
+package model;
+
 
 import java.util.*;
 
@@ -5,17 +7,21 @@ import java.util.*;
  * 
  */
 public class System {
+	
+	/**
+	 * 
+	 */
+	private Database db;
+	
+	private SuperUser super_user;
 
 	/**
 	 * Default constructor
 	 */
 	public System() {
+		db = new Database();
+		super_user = new SuperUser();
 	}
-
-	/**
-	 * 
-	 */
-	private Database db;
 
 	/**
 	 * 

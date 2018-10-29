@@ -1,62 +1,50 @@
+package model;
+
 
 import java.util.*;
 
 /**
  * 
  */
-public class Store {
+public class Store extends room{
+	
 
-	/**
-	 * Default constructor
-	 */
-	public Store() {
-	}
-
-	/**
-	 * 
-	 */
-	private String storeID;
-
-	/**
-	 * 
-	 */
-	private static int storeCount;
-
-	/**
-	 * 
-	 */
-	private String storeName;
-
+	
 	/**
 	 * 
 	 */
 	private Warehouse warehouse;
-
+	
 	/**
 	 * 
 	 */
-	private StoreAdministrator admin;
-
-	/**
-	 * 
-	 */
-	private Category topCategory;
-
-	/**
-	 * 
-	 */
-	private Collection<Product> allProducts;
+	private static int storeCount=1;
 
 	/**
 	 * 
 	 */
 	private float fixedCost_D;
 
-
-
-
-
-
+	
+	/**
+	 * Default constructor
+	 */
+	public Store(String Name, Admin admin) {
+		super(Name, "store_" + Integer.toString(storeCount), admin);
+		storeCount+=1;
+	}
+	
+	public void add_category(Category category) {
+		this.Categories.add(category);
+	}
+	
+	public void delete_category(Category category) {
+		this.Categories.remove(category);
+	}
+	
+	public void set_current(Category category) {
+		this.Current_Category = category;
+	}
 	/**
 	 * 
 	 */

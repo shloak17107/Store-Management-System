@@ -1,3 +1,5 @@
+package model;
+
 
 import java.util.*;
 
@@ -5,13 +7,41 @@ import java.util.*;
  * 
  */
 public class Category {
+	
+	/**
+	 * 
+	 */
+	private String categoryName;
+	
+	/**
+	 * 
+	 */
+	private LinkedList<subCategory> subCategories;
+	
+	private subCategory current_subCategory;
+	
+	
 
 	/**
 	 * Default constructor
 	 */
-	public Category() {
+	public Category(String Name) {
+		this.categoryName = Name;
+	}
+	
+	public void update(String name) {
+		this.categoryName = name;
+	}
+	
+	public void add_sub(subCategory sub) {
+		this.subCategories.add(sub);
 	}
 
+	public void set_sub(subCategory sub) {
+		this.current_subCategory = sub;
+	}
+	
+	
 	/**
 	 * 
 	 */
@@ -22,20 +52,12 @@ public class Category {
 	 */
 	private static int categoryCount;
 
-	/**
-	 * 
-	 */
-	private String categoryName;
+	
 
 	/**
 	 * 
 	 */
 	private Category parentCategory;
-
-	/**
-	 * 
-	 */
-	private Collection<Category> subCategories;
 
 	/**
 	 * 
