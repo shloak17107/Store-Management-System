@@ -5,12 +5,21 @@ import java.util.*;
 /**
  * 
  */
-public class Product <T> {
+public class Product {
+	
+	/**
+	 * 
+	 */
+	private String productName;
+	private subCategory parent;
+	
+public class Product {
 
 	/**
 	 * Default constructor
 	 */
-	public Product() {
+	public Product(String Name, subCategory parent) {
+		this.parent = parent;
 	}
 
 	/**
@@ -23,10 +32,6 @@ public class Product <T> {
 	 */
 	private static int productCount;
 
-	/**
-	 * 
-	 */
-	private String productName;
 
 	/**
 	 * 
@@ -43,10 +48,11 @@ public class Product <T> {
 	 */
 	private float EOQ;
 
+
 	/**
 	 * 
 	 */
-	private T location;
+	private <T> location;
 
 	/**
 	 * 
