@@ -1,10 +1,11 @@
+package model;
 
 import java.util.*;
 
 /**
  * 
  */
-private class Cart {
+public class Cart {
 
 	/**
 	 * Default constructor

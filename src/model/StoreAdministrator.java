@@ -1,3 +1,4 @@
+package model;
 
 import java.util.*;
 
@@ -23,7 +24,7 @@ public class StoreAdministrator extends User {
 	/**
 	 * @return
 	 */
-	public list<record> order_items() {
+	public List<Record> order_items() {
 		// TODO implement here
 		return null;
 	}

@@ -1,6 +1,5 @@
 package model;
 
-
 import java.util.*;
 
 /**
@@ -12,8 +11,9 @@ public class Product {
 	 * 
 	 */
 	private String productName;
-	
 	private subCategory parent;
+	
+public class Product {
 
 	/**
 	 * Default constructor
@@ -48,10 +48,11 @@ public class Product {
 	 */
 	private float EOQ;
 
-//	/**
-//	 * 
-//	 */
-//	private <T> location;
+
+	/**
+	 * 
+	 */
+	private <T> location;
 
 	/**
 	 * 
