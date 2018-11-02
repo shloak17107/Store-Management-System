@@ -2,16 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -68,21 +66,33 @@
             </Text>
          </children>
       </AnchorPane>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="800.0">
+      <AnchorPane prefHeight="449.0" prefWidth="800.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" layoutX="241.0" layoutY="14.0" prefHeight="61.0" prefWidth="803.0" text="New Store" AnchorPane.bottomAnchor="388.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Italic" size="26.0" />
+               </font>
+            </Label>
+            <VBox layoutX="374.0" layoutY="68.0" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
                <children>
-                  <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="288.0" prefWidth="330.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="50.0" />
-                  <Button layoutX="157.0" layoutY="363.0" mnemonicParsing="false" text="Create Warehouse" />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
                </children>
-            </AnchorPane>
-            <AnchorPane layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            </VBox>
+            <VBox layoutX="143.0" layoutY="68.0" prefHeight="200.0" prefWidth="150.0" spacing="15.0">
                <children>
-                  <ListView layoutX="25.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="289.0" prefWidth="329.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="50.0" />
-                  <Button layoutX="167.0" layoutY="377.0" mnemonicParsing="false" text="Create Store" />
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="151.0" text="Name :" />
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="151.0" text="Id:" />
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="151.0" text="Admin_name:" />
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="151.0" text="Admin_id:" />
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="151.0" text="Admin_password:" />
                </children>
-            </AnchorPane>
+            </VBox>
+            <Button layoutX="366.0" layoutY="291.0" mnemonicParsing="false" text="Create" />
          </children>
-      </HBox>
+      </AnchorPane>
    </children>
 </VBox>

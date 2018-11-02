@@ -17,7 +17,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ListView fx:id="lsvCategory" layoutY="48.0" prefHeight="384.0" prefWidth="798.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0" />
+                  <ListView fx:id="lsvCategory" layoutY="48.0" prefHeight="384.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0" />
                   <MenuButton layoutX="653.0" layoutY="12.0" mnemonicParsing="false" text="Add">
                     <items>
                         <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
