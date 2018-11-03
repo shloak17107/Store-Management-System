@@ -2,15 +2,19 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -67,41 +71,44 @@
             </Text>
          </children>
       </AnchorPane>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="800.0">
+      <Label alignment="CENTER" graphicTextGap="20.0" lineSpacing="10.0" prefHeight="95.0" prefWidth="800.0" text="Order Products" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="453.0" prefWidth="800.0">
          <children>
-            <AnchorPane prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <AnchorPane prefHeight="448.0" prefWidth="449.0">
                <children>
-                  <Button layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Warehouse" />
-                  <ScrollPane layoutX="57.0" layoutY="57.0" prefHeight="271.0" prefWidth="286.0">
-                     <content>
-                        <VBox prefHeight="271.0" prefWidth="286.0" spacing="10.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Warehouse 1" />
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Warehouse 2" />
-                              <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Warehouse 3" />
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="30.0" prefHeight="39.0" prefWidth="122.0" text="Name" />
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="103.0" prefHeight="39.0" prefWidth="122.0" text="Quantity" />
+                  <TextField layoutX="214.0" layoutY="37.0" />
+                  <TextField layoutX="214.0" layoutY="110.0" />
+                  <Button layoutX="34.0" layoutY="277.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="114.0" text="Add to List" />
+                  <Button layoutX="263.0" layoutY="277.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" text="Order" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="310.0" layoutY="10.0" prefHeight="0.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <GridPane prefHeight="398.0" prefWidth="349.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <ScrollPane layoutX="44.0" layoutY="57.0" prefHeight="271.0" prefWidth="286.0">
-                     <content>
-                        <VBox prefHeight="271.0" prefWidth="286.0" spacing="10.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Store 1" />
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Store 2" />
-                              <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Store 3" />
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-                  <Button layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Store" />
-                  <Button layoutX="257.0" layoutY="12.0" mnemonicParsing="false" text="Update Link" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="78.0" prefWidth="185.0" text="Product Name" />
+                        <Label prefHeight="70.0" prefWidth="173.0" text="Price" />
+                     </children>
+                  </HBox>
                </children>
-            </AnchorPane>
+            </GridPane>
          </children>
       </HBox>
    </children>
