@@ -5,40 +5,64 @@ import java.util.*;
 /**
  * 
  */
-public class SuperUser extends User {
+public class SuperUser {
 
 	/**
 	 * Default constructor
 	 */
-	public SuperUser() {
+	
+	private Database db;
+
+	private String Name;
+	private String ID;
+	private String pswd;
+	
+	public SuperUser(Database db, String Name, String ID, String pswd) {
+		this.db = db;
+		this.Name = Name;
+		this.ID = ID;
+		this.pswd = pswd;
+	}
+
+	public String getName() {
+		return Name;
 	}
 
 
 
+	public String getID() {
+		return ID;
+	}
 
 
 
-	/**
-	 * @return
-	 */
-	private Warehouse createWarehouse() {
-		// TODO implement here
-		return null;
+	public String getPswd() {
+		return pswd;
 	}
 
 	/**
 	 * @return
 	 */
-	private Warehouse createStore() {
+	public void createWarehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
 		// TODO implement here
-		return null;
+		Warehouse new_warehouse = new Warehouse(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
+		db.add_warehouse(new_warehouse);
+	}
+
+	/**
+	 * @return
+	 */
+	public void createStore(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
+		// check ID already created , throw exception.
+		Store new_store = new Store(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
+		db.add_store(new_store);
 	}
 
 	/**
 	 * @param warehouse 
 	 * @param store
 	 */
-	private void link(Warehouse warehouse, Store store) {
+	public void link(Warehouse warehouse, Store store) {
 		// TODO implement here
 	}
 

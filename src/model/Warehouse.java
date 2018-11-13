@@ -5,12 +5,13 @@ import java.util.*;
 /**
  * 
  */
-public class Warehouse {
+public class Warehouse extends room{
 
 	/**
 	 * Default constructor
 	 */
-	public Warehouse() {
+	public Warehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
+		super(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
 	}
 
 	/**

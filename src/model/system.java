@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 
  */
-public class System {
+public class system {
 	
 	/**
 	 * 
@@ -19,11 +19,16 @@ public class System {
 	/**
 	 * Default constructor
 	 */
-	public System() {
+	public system() {
 		db = new Database();
-		super_user = new SuperUser();
+		super_user = db.getSuperUser();
+		super_user.createStore("store_name", "store_ID", "storeAdmin_name", "storeAdmin_ID", "storeAdmin_pswd");
+		super_user.createWarehouse("warehouse_name", "warehouse_ID", "warehouseAdmin_name", "warehouseAdmin_ID", "warehouseAdmin_pswd");
 	}
 
+	public Database getDatabase() {
+		return this.db;
+	}
 	/**
 	 * 
 	 */

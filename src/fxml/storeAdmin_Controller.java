@@ -1,4 +1,4 @@
-package controllers;
+package fxml;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import model.Store;
+import model.room;
 
 public class storeAdmin_Controller {
 	
@@ -19,6 +21,12 @@ public class storeAdmin_Controller {
 	
 	@FXML
 	private GridPane top_bar;
+	
+	private room myStore;
+	
+	public void setApp(room myStore) {
+		this.myStore = myStore;
+	}
 	
 	public storeAdmin_Controller() {
 		lsvCategory = new ListView();

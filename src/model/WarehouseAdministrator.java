@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class WarehouseAdministrator extends User {
+public class WarehouseAdministrator extends Admin {
 
 	/**
 	 * Default constructor

@@ -1,11 +1,11 @@
-package model;
+0package model;
 
 import java.util.*;
 
 /**
  * 
  */
-public class StoreAdministrator extends User {
+public class StoreAdministrator extends Admin {
 
 	/**
 	 * Default constructor

@@ -29,8 +29,8 @@ public class Store extends room{
 	/**
 	 * Default constructor
 	 */
-	public Store(String Name, Admin admin) {
-		super(Name, "store_" + Integer.toString(storeCount), admin);
+	public Store(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
+		super(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
 		storeCount+=1;
 	}
 	
