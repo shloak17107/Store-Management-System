@@ -1,6 +1,7 @@
 package model;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * 
@@ -10,75 +11,77 @@ public class Database {
 	/**
 	 * Default constructor
 	 */
-	private SuperUser SUser;
-	
-	/**
-	 * 
-	 */
-	private LinkedList<Warehouse> warehouses;
-
-	/**
-	 * 
-	 */
-	private LinkedList<Store> stores;
-
-	/**
-	 * 
-	 */
-	private LinkedList<Admin> WarehouseAdmins;
-
-	/**
-	 * 
-	 */
-	private LinkedList<Admin> StoreAdmins;
-	
 	public Database() {
-		this.SUser = new SuperUser(this, "SuperUser_Name", "SuperUser_ID", "SuperUser_pswd");
 		warehouses = new LinkedList<Warehouse>();
 		stores = new LinkedList<Store>();
-		WarehouseAdmins = new LinkedList<Admin>();
-		StoreAdmins = new LinkedList<Admin>();
+		superUser = generateSuperUser();
+		allWarehouseAdmins = new LinkedList<WarehouseAdministrator>();
+		allStoreAdmins = new LinkedList<StoreAdministrator>();
+	}
+
+	/**
+	 * 
+	 */
+	private Collection<Warehouse> warehouses;
+
+	/**
+	 * 
+	 */
+	private Collection<Store> stores;
+
+	/**
+	 * 
+	 */
+	private User superUser;
+
+	/**
+	 * 
+	 */
+	private Collection<User> allEndUsers;
+
+	/**
+	 * 
+	 */
+	private Collection<WarehouseAdministrator> allWarehouseAdmins;
+
+	/**
+	 * 
+	 */
+	private Collection<StoreAdministrator> allStoreAdmins;
+	
+	/**
+	 * 
+	 * @param e
+	 */
+	public void addAdmin (User e) {
+		if (e instanceof WarehouseAdministrator) {
+			allWarehouseAdmins.add((WarehouseAdministrator) e);
+		}
+		else if (e instanceof StoreAdministrator) {
+			allStoreAdmins.add((StoreAdministrator) e);
+		}
 	}
 	
-	public void add_store(Store store) {
-		stores.add(store);
-		StoreAdmins.add(store.getAdmin());
+	/**
+	 * 
+	 * @param e
+	 */
+	public void addFacility (Facility e) {
+		if (e instanceof Warehouse) {
+			warehouses.add((Warehouse) e);
+		}
+		else if (e instanceof Store) {
+			stores.add((Store) e);
+		}
 	}
 	
-	public void add_warehouse(Warehouse warehouse) {
-		warehouses.add(warehouse);
-		WarehouseAdmins.add(warehouse.getAdmin());
-	}
-	
-	public Store getStore(String S_ID) {
-//		iterate through stores and
-//		return the store with S_ID
+	/**
+	 * 
+	 * @return
+	 */
+	private SuperUser generateSuperUser() {
+		//TODO implement here
 		return null;
 	}
 	
-	public Warehouse getWarehouse(String W_ID) {
-//		iterate through warehouses and
-//		return the warehouse with W_ID
-		return null;
-	}
-	
-	public LinkedList<Store> getStores() {
-		return this.stores;
-	}
-	
-	public LinkedList<Warehouse> getWarehouses() {
-		return this.warehouses;
-	}
-	
-	public SuperUser getSuperUser() {
-		return this.SUser;
-	}
-	
-	public LinkedList<Admin> getStoreAdmins() {
-		return this.StoreAdmins;
-	}
-	
-	public LinkedList<Admin> getWarehouseAdmins() {
-		return this.WarehouseAdmins;
-	}
 }

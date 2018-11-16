@@ -1,87 +1,90 @@
 package model;
 
-import java.util.*;
-
 /**
+ * The superuser has the highest authority over a database.<p>
  * 
+ * There can be <i>one and only one</i> superuser per database.
+ * 
+ * @see	Database
  */
-public class SuperUser {
+public final class SuperUser extends User {
 
 	/**
 	 * Default constructor
+	 * 
+	 * @param db		the database that superuser will manage
+	 * @param username	username of the superuser
+	 * @param password	password of the superuser
 	 */
-	
-	private Database db;
-
-	private String Name;
-	private String ID;
-	private String pswd;
-	
-	public SuperUser(Database db, String Name, String ID, String pswd) {
+	public SuperUser(Database db, String username, String password) {
+		super(username, password);
 		this.db = db;
-		this.Name = Name;
-		this.ID = ID;
-		this.pswd = pswd;
 	}
-
-	public String getName() {
-		return Name;
-	}
-
-
-
-	public String getID() {
-		return ID;
-	}
-
-
-
-	public String getPswd() {
-		return pswd;
-	}
-
+	
+	
 	/**
-	 * @return
+	 * 
 	 */
-	public void createWarehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
-		// TODO implement here
-		Warehouse new_warehouse = new Warehouse(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
-		db.add_warehouse(new_warehouse);
-	}
-
+	private final Database db;
+	
+	
 	/**
-	 * @return
+	 * 
+	 * @param warehouseName
+	 * @param adminUsername
+	 * @param adminPassword
 	 */
-	public void createStore(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
-		// check ID already created , throw exception.
-		Store new_store = new Store(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
-		db.add_store(new_store);
+	public void createWarehouse(String warehouseName, String adminUsername, String adminPassword) {
+		WarehouseAdministrator newWarehouseAdmin = createWarehouseAdmin(adminUsername, adminPassword);
+		Warehouse newWarehouse = new Warehouse(warehouseName, newWarehouseAdmin);
+		newWarehouseAdmin.setMyWarehouse(newWarehouse);
+		db.addFacility(newWarehouse);
 	}
 
 	/**
+	 * 
+	 * @param storeName
+	 * @param adminUsername
+	 * @param adminPassword
+	 */
+	public void createStore(String storeName, String adminUsername, String adminPassword) {
+		StoreAdministrator newStoreAdmin = createStoreAdmin(adminUsername, adminPassword);
+		Store newStore = new Store(storeName, newStoreAdmin);
+		db.addFacility(newStore);
+	}
+
+	/**
+	 * @param username 
+	 * @param password 
+	 * @return 
+	 */
+	public WarehouseAdministrator createWarehouseAdmin(String username, String password) {
+		WarehouseAdministrator newWarehouseAdmin = new WarehouseAdministrator(username, password);
+		db.addAdmin(newWarehouseAdmin);
+		return newWarehouseAdmin;
+	}
+
+	/**
+	 * @param username 
+	 * @param password 
+	 * @param store
+	 * @return 
+	 */
+	public StoreAdministrator createStoreAdmin(String username, String password) {
+		StoreAdministrator newStoreAdmin = new StoreAdministrator(username, password);
+		db.addAdmin(newStoreAdmin);
+		return newStoreAdmin;
+	}
+	
+	/**
+	 * Adds a connection between a warehouse and a store.
+	 * 
 	 * @param warehouse 
 	 * @param store
 	 */
 	public void link(Warehouse warehouse, Store store) {
-		// TODO implement here
-	}
-
-	/**
-	 * @param username 
-	 * @param password 
-	 * @param warehouse
-	 */
-	public void createWarehouseAdmin(String username, String password, Warehouse warehouse) {
-		// TODO implement here
-	}
-
-	/**
-	 * @param username 
-	 * @param password 
-	 * @param store
-	 */
-	public void createStoreAdmin(String username, String password, Store store) {
-		// TODO implement here
+		warehouse.linkStore(store);
+		store.linkWarehouse(warehouse);
 	}
 
 }

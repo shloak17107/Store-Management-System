@@ -20,18 +20,18 @@ public class Main extends Application {
 	
 	private static Main mainInstance;
 	private Parent root;
-	private system APP;
+	private System APP;
 	
     public Main() {
         mainInstance = this;
-        APP = new system();
+        APP = new System();
     }
     
     public static Main getInstance() {
         return mainInstance;
     }
     
-    public system getSystem() {
+    public System getSystem() {
     	return this.APP;
     }
     
@@ -68,7 +68,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public void storeAdmin(room myStore) {
+	public void storeAdmin(Facility myStore) {
 		FXMLLoader loader;
 		try {
 			loader = new_stage("/fxml/storeAdmin.fxml");
@@ -80,7 +80,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public void warehouseAdmin(room myWarehouse) {
+	public void warehouseAdmin(Facility myWarehouse) {
 		FXMLLoader loader;
 		try {
 			loader = new_stage("/fxml/warehouseAdmin.fxml");
