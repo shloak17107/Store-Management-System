@@ -1,69 +1,38 @@
 package model;
 
-
-import java.util.*;
-
 /**
  * 
  */
-public class Admin {
-	
-	private String name;
-	private String ID;
-	private String pswd;
-	private room myRoom;
-	
-	public Admin(String name, String ID, String pswd, room myRoom) {
-		this.name = name;
-		this.ID = ID;
-		this.pswd = pswd;
-		this.myRoom = myRoom;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getID() {
-		return ID;
-	}
-
-	public String getPswd() {
-		return pswd;
-	}
-
-	public room getMyRoom() {
-		return myRoom;
-	}
+public interface Admin {
 	
 	/**
 	 * 
 	 */
-	public void addCategory() {};
+	public void addCategory(Category e);
 
 	/**
 	 * 
 	 */
-	public void updateCategory() {};
+	public void updateCategory(String categoryName);
 
 	/**
 	 * 
 	 */
-	public void deleteCategory() {};
+	public void deleteCategory(String categoryName);
 
 	/**
 	 * 
 	 */
-	public void addProduct() {};
+	public void addProduct(Product e);
 
 	/**
 	 * 
 	 */
-	public void updateProduct() {};
+	public void updateProduct(String productName);
 
 	/**
 	 * 
 	 */
-	public void deleteProduct() {};
+	public void deleteProduct(String productName);
 
 }

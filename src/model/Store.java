@@ -1,50 +1,39 @@
 package model;
 
 
-import java.util.*;
-
 /**
  * 
  */
-public class Store extends room{
-	
+public class Store extends Facility {
 
-	
+	/**
+	 * Default constructor
+	 */
+	public Store (String storeName, StoreAdministrator admin) {
+		super(storeName, admin);
+		storeID = "S" + ++storeCount;
+	}
+
+	/**
+	 * 
+	 */
+	private final String storeID;
+
+	/**
+	 * 
+	 */
+	private static int storeCount;
+
 	/**
 	 * 
 	 */
 	private Warehouse warehouse;
-	
-	/**
-	 * 
-	 */
-	private static int storeCount=1;
 
-	/**
-	 * 
-	 */
-	private float fixedCost_D;
 
-	
-	/**
-	 * Default constructor
-	 */
-	public Store(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
-		super(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
-		storeCount+=1;
-	}
-	
-	public void add_category(Category category) {
-		this.Categories.add(category);
-	}
-	
-	public void delete_category(Category category) {
-		this.Categories.remove(category);
-	}
-	
-	public void set_current(Category category) {
-		this.Current_Category = category;
-	}
+
+
+
+
 	/**
 	 * 
 	 */
@@ -73,6 +62,35 @@ public class Store extends room{
 	 */
 	public void generateAlert() {
 		// TODO implement here
+	}
+
+	/**
+	 * 
+	 * @param warehouse
+	 */
+	public void linkWarehouse(Facility warehouse) {
+		this.setWarehouse((Warehouse) warehouse);
+	}
+
+	/**
+	 * @return the storeID
+	 */
+	public String getStoreID() {
+		return storeID;
+	}
+
+	/**
+	 * @return the warehouse
+	 */
+	public Warehouse getWarehouse() {
+		return warehouse;
+	}
+
+	/**
+	 * @param warehouse the warehouse to set
+	 */
+	public void setWarehouse(Warehouse warehouse) {
+		this.warehouse = warehouse;
 	}
 
 }

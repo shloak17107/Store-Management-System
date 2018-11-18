@@ -5,19 +5,20 @@ import java.util.*;
 /**
  * 
  */
-public class Warehouse extends room{
+public class Warehouse extends Facility {
 
 	/**
 	 * Default constructor
 	 */
-	public Warehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
-		super(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
+	public Warehouse(String warehouseName, WarehouseAdministrator admin) {
+		super(warehouseName, admin);
+		warehouseID = "W" + ++warehouseCount;
 	}
 
 	/**
 	 * 
 	 */
-	private String warehouseID;
+	private final String warehouseID;
 
 	/**
 	 * 
@@ -27,37 +28,7 @@ public class Warehouse extends room{
 	/**
 	 * 
 	 */
-	private String warehouseName;
-
-	/**
-	 * 
-	 */
 	private Collection<Store> stores;
-
-	/**
-	 * 
-	 */
-	private WarehouseAdministrator admin;
-
-	/**
-	 * 
-	 */
-	private Category topCategory;
-
-	/**
-	 * 
-	 */
-	private Collection<Product> allProducts;
-
-	/**
-	 * 
-	 */
-	private float fixedCost_D;
-
-
-
-
-
 
 
 	/**
@@ -114,6 +85,17 @@ public class Warehouse extends room{
 	 */
 	public void generateAlert() {
 		// TODO implement here
+	}
+
+	public void linkStore(Facility store) {
+		stores.add((Store) store);
+	}
+
+	/**
+	 * @return the warehouseID
+	 */
+	public String getWarehouseID() {
+		return warehouseID;
 	}
 
 }
