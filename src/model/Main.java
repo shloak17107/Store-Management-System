@@ -3,8 +3,11 @@ package model;
 
 import fxml.endUser_Controller;
 import fxml.loginController;
+import fxml.newStore_Controller;
+import fxml.newWarehouse_Controller;
 import fxml.storeAdmin_Controller;
 import fxml.superUser_Controller;
+import fxml.updateLink_Controller;
 import fxml.warehouseAdmin_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -103,6 +106,43 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	public void newWarehouse(SuperUser SUser) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/newWarehouse.fxml");
+			newWarehouse_Controller newWarehouse = loader.getController();
+			newWarehouse.setApp(SUser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void newStore(SuperUser SUser) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/newStore.fxml");
+			newStore_Controller newStore = loader.getController();
+			newStore.setApp(SUser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateLink(SuperUser SUser) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/updateLink.fxml");
+			updateLink_Controller newStore = loader.getController();
+			newStore.setApp(SUser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public FXMLLoader new_stage(String fxml) throws Exception {
 		Stage stage = new Stage();

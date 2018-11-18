@@ -71,7 +71,7 @@
          <children>
             <AnchorPane prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Warehouse" />
+                  <Button fx:id="btnNewWarehouse" layoutX="144.0" layoutY="367.0" mnemonicParsing="false" onAction="#newWarehouse_button" text="Create Warehouse" />
                   <ScrollPane layoutX="57.0" layoutY="57.0" prefHeight="271.0" prefWidth="286.0">
                      <content>
                         <VBox prefHeight="271.0" prefWidth="286.0" spacing="10.0">
@@ -98,8 +98,8 @@
                         </VBox>
                      </content>
                   </ScrollPane>
-                  <Button layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Store" />
-                  <Button layoutX="257.0" layoutY="12.0" mnemonicParsing="false" text="Update Link" />
+                  <Button fx:id="btnNewStore" layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Store" />
+                  <Button fx:id="btnUpdateLink" layoutX="257.0" layoutY="12.0" mnemonicParsing="false" text="Update Link" />
                </children>
             </AnchorPane>
          </children>
