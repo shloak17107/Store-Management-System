@@ -8,8 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import model.Facility;
 import model.Store;
-import model.room;
 
 public class storeAdmin_Controller {
 	
@@ -22,9 +22,9 @@ public class storeAdmin_Controller {
 	@FXML
 	private GridPane top_bar;
 	
-	private room myStore;
+	private Facility myStore;
 	
-	public void setApp(room myStore) {
+	public void setApp(Facility myStore) {
 		this.myStore = myStore;
 	}
 	

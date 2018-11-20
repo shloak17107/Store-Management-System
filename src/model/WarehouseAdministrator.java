@@ -21,6 +21,13 @@ public class WarehouseAdministrator extends User implements Admin {
 	 */
 	private Facility myWarehouse;
 
+
+	/**
+	 * 
+	 */
+	public Facility getMyFacility() {
+		return this.myWarehouse;
+	}
 	
 	/**
 	 * @return

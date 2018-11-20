@@ -49,6 +49,26 @@ public class Database {
 	 */
 	private Collection<StoreAdministrator> allStoreAdmins;
 	
+	public Collection<Store> getStores() {
+		return this.stores;
+	}
+	
+	public Collection<Warehouse> getWarehouses() {
+		return this.warehouses;
+	}
+	
+	public User getSuperUser() {
+		return this.superUser;
+	}
+	
+	public Collection<StoreAdministrator> getStoreAdmins() {
+		return this.allStoreAdmins;
+	}
+	
+	public Collection<WarehouseAdministrator> getWarehouseAdmins() {
+		return this.allWarehouseAdmins;
+	}
+	
 	/**
 	 * 
 	 * @param e

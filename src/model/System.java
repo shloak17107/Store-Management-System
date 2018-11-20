@@ -64,6 +64,13 @@ public class System {
 	}
 
 	/**
+	 * 
+	 */
+	public Database getDatabase() {
+		return this.db;
+	}
+	
+	/**
 	 * Deserializes database from a file.
 	 * 
 	 * @param filename	file from which database will be loaded

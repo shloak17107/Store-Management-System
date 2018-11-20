@@ -11,7 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Admin;
 import model.Main;
+import model.StoreAdministrator;
 import model.SuperUser;
+import model.WarehouseAdministrator;
+
 import java.util.concurrent.TimeUnit;
 
 public class loginController {
@@ -49,15 +52,15 @@ public class loginController {
 	
 	private SuperUser SUser;
 	
-	private LinkedList<Admin> StoreAdmins;
+	private LinkedList<StoreAdministrator> StoreAdmins;
 	
-	private LinkedList<Admin> WarehouseAdmins;
+	private LinkedList<WarehouseAdministrator> WarehouseAdmins;
 	    
 	public void setApp(Main application) {
 	    	this.application = application;
-	    	SUser = this.application.getSystem().getDatabase().getSuperUser();
-	    	StoreAdmins = this.application.getSystem().getDatabase().getStoreAdmins();
-	    	WarehouseAdmins = this.application.getSystem().getDatabase().getWarehouseAdmins();
+	    	SUser = (SuperUser) this.application.getSystem().getDatabase().getSuperUser();
+	    	StoreAdmins = (LinkedList<StoreAdministrator>) this.application.getSystem().getDatabase().getStoreAdmins();
+	    	WarehouseAdmins = (LinkedList<WarehouseAdministrator>) this.application.getSystem().getDatabase().getWarehouseAdmins();
 	 	}
 	
 	public void default_setUp() {
@@ -97,7 +100,7 @@ public class loginController {
 			String Pswd = txPswd.getText();
 			
 			if (UserType.equals("Super User")) {
-				if (!UserID.equals(SUser.getID()) || !Pswd.equals(SUser.getPswd())) {
+				if (!UserID.equals(SUser.getUsername()) || !Pswd.equals(SUser.getPassword())) {
 					lblWarning.setText("Invalid UserName or Password");
 				}
 				else {
@@ -108,9 +111,9 @@ public class loginController {
 			
 			else if (UserType.equals("Store Admin")) {
 				for (int i=0;i<StoreAdmins.size();i++) {
-					Admin current = StoreAdmins.get(i);
-					if (UserID.equals(current.getID()) && Pswd.equals(current.getPswd())) {
-						this.application.storeAdmin(current.getMyRoom());
+					StoreAdministrator current = StoreAdmins.get(i);
+					if (UserID.equals(current.getUsername()) && Pswd.equals(current.getPassword())) {
+						this.application.storeAdmin(current.getMyFacility());
 						this.default_setUp();
 					}
 					else if (i == StoreAdmins.size()-1) {
@@ -121,9 +124,9 @@ public class loginController {
 			
 			else {
 				for (int i=0;i<WarehouseAdmins.size();i++) {
-					Admin current = WarehouseAdmins.get(i);
-					if (UserID.equals(current.getID()) && Pswd.equals(current.getPswd())) {
-						this.application.warehouseAdmin(current.getMyRoom());
+					WarehouseAdministrator current = WarehouseAdmins.get(i);
+					if (UserID.equals(current.getUsername()) && Pswd.equals(current.getPassword())) {
+						this.application.warehouseAdmin(current.getMyFacility());
 						this.default_setUp();
 					}
 					else if (i == WarehouseAdmins.size()-1) {

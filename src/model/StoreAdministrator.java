@@ -11,17 +11,23 @@ public class StoreAdministrator extends User implements Admin {
 	/**
 	 * Default constructor
 	 */
-	public StoreAdministrator(String username, String password) {
+	public StoreAdministrator(String username, String password, Facility store) {
 		super(username, password);
+		this.myStore = store;
 	}
 
 	/**
 	 * 
 	 */
-	private Store myStore;
+	private Facility myStore;
 
 
-
+	/**
+	 * 
+	 */
+	public Facility getMyFacility() {
+		return this.myStore;
+	}
 
 	/**
 	 * @return
