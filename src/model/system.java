@@ -22,8 +22,12 @@ public class system {
 	public system() {
 		db = new Database();
 		super_user = db.getSuperUser();
-		super_user.createStore("store_name", "store_ID", "storeAdmin_name", "storeAdmin_ID", "storeAdmin_pswd");
-		super_user.createWarehouse("warehouse_name", "warehouse_ID", "warehouseAdmin_name", "warehouseAdmin_ID", "warehouseAdmin_pswd");
+		super_user.createStore("store1", "store1", "storeAdmin1", "storeAdmin1", "storeAdmin1");
+		super_user.createStore("store2", "store2", "storeAdmin2", "storeAdmin2", "storeAdmin2");
+		super_user.createStore("store3", "store3", "storeAdmin3", "storeAdmin3", "storeAdmin3");
+		super_user.createWarehouse("warehouse1", "warehouse1", "warehouseAdmin1", "warehouseAdmin1", "warehouseAdmin1");
+		super_user.createWarehouse("warehouse2", "warehouse2", "warehouseAdmin2", "warehouseAdmin2", "warehouseAdmin2");
+		super_user.createWarehouse("warehouse3", "warehouse3", "warehouseAdmin3", "warehouseAdmin3", "warehouseAdmin3");
 	}
 
 	public Database getDatabase() {

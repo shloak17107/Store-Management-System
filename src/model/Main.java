@@ -1,10 +1,14 @@
 package model;
 
 
+import fxml.categoriesDisplay_Controller;
 import fxml.endUser_Controller;
 import fxml.loginController;
+import fxml.newStore_Controller;
+import fxml.newWarehouse_Controller;
 import fxml.storeAdmin_Controller;
 import fxml.superUser_Controller;
+import fxml.updateLink_Controller;
 import fxml.warehouseAdmin_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -68,6 +72,54 @@ public class Main extends Application {
 		}
 	}
 	
+	public void newWarehouse(SuperUser SUser, superUser_Controller SuperController) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/newWarehouse.fxml");
+		    newWarehouse_Controller newWarehouse = loader.getController();
+		    newWarehouse.setApp(SUser, SuperController);
+		  }
+		  catch (Exception e) {
+		  e.printStackTrace();
+		   }
+		 }
+		       
+		public void newStore(SuperUser SUser, superUser_Controller SuperController) {
+		 FXMLLoader loader;
+		 try {
+		    loader = new_stage("/fxml/newStore.fxml");
+		    newStore_Controller newStore = loader.getController();
+		    newStore.setApp(SUser, SuperController);
+		   }
+		 catch (Exception e) {
+		      e.printStackTrace();
+		   }
+		       }
+		 
+		public void Room(room Room) {
+			FXMLLoader loader;
+			try {
+				loader = new_stage("/fxml/categoriesDisplay.fxml");
+				categoriesDisplay_Controller categoriesDisplay = loader.getController();
+				categoriesDisplay.setApp(Room);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		 public void updateLink(SuperUser SUser) {
+		 FXMLLoader loader;
+		 try {
+		 loader = new_stage("/fxml/updateLink.fxml");
+		 updateLink_Controller UpdateLink = loader.getController();
+		 UpdateLink.setApp(SUser);
+		  }
+		 catch (Exception e) {
+		 e.printStackTrace();
+		 }
+		}
+
 	public void storeAdmin(room myStore) {
 		FXMLLoader loader;
 		try {

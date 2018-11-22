@@ -71,16 +71,10 @@
          <children>
             <AnchorPane prefHeight="500.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Warehouse" />
+                  <Button fx:id="btnNewWarehouse" layoutX="144.0" layoutY="367.0" mnemonicParsing="false" onAction="#newWarehouse_button" text="Create Warehouse" />
                   <ScrollPane layoutX="57.0" layoutY="57.0" prefHeight="271.0" prefWidth="286.0">
                      <content>
-                        <VBox prefHeight="271.0" prefWidth="286.0" spacing="10.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Warehouse 1" />
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Warehouse 2" />
-                              <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Warehouse 3" />
-                           </children>
-                        </VBox>
+                        <VBox fx:id="VBoxWarehouse" prefHeight="271.0" prefWidth="286.0" spacing="10.0" />
                      </content>
                   </ScrollPane>
                </children>
@@ -89,17 +83,11 @@
                <children>
                   <ScrollPane layoutX="44.0" layoutY="57.0" prefHeight="271.0" prefWidth="286.0">
                      <content>
-                        <VBox prefHeight="271.0" prefWidth="286.0" spacing="10.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Store 1" />
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Store 2" />
-                              <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="272.0" text="Store 3" />
-                           </children>
-                        </VBox>
+                        <VBox fx:id="VBoxStore" prefHeight="271.0" prefWidth="286.0" spacing="10.0" />
                      </content>
                   </ScrollPane>
-                  <Button layoutX="144.0" layoutY="367.0" mnemonicParsing="false" text="Create Store" />
-                  <Button layoutX="257.0" layoutY="12.0" mnemonicParsing="false" text="Update Link" />
+                  <Button fx:id="btnNewStore" layoutX="144.0" layoutY="367.0" mnemonicParsing="false" onAction="#newStore_button" text="Create Store" />
+                  <Button fx:id="btnUpdateLink" layoutX="257.0" layoutY="12.0" mnemonicParsing="false" onAction="#updateLink_button" text="Update Link" />
                </children>
             </AnchorPane>
          </children>

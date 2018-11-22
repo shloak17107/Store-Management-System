@@ -40,6 +40,10 @@ public class SuperUser {
 		return pswd;
 	}
 
+	public Database getDatabase() {
+		return this.db;
+	}
+	
 	/**
 	 * @return
 	 */
