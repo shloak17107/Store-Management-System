@@ -12,6 +12,8 @@ public class Database {
 	 */
 	private SuperUser SUser;
 	
+	private EndUser endUser;
+	
 	/**
 	 * 
 	 */
@@ -81,4 +83,10 @@ public class Database {
 	public LinkedList<Admin> getWarehouseAdmins() {
 		return this.WarehouseAdmins;
 	}
+	
+	public EndUser getEndUser() {
+		this.endUser = new EndUser();
+		return this.endUser;
+	}
+	
 }

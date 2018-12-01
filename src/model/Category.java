@@ -12,6 +12,10 @@ public class Category {
 	 */
 	private String categoryName;
 	
+	private String Description;
+	
+	private room parent;
+	
 	/**
 	 * 
 	 */
@@ -24,76 +28,47 @@ public class Category {
 	/**
 	 * Default constructor
 	 */
-	public Category(String Name) {
+	public Category(String Name, String Description, room parent) {
 		this.categoryName = Name;
+		this.Description = Description;
+		this.parent = parent;
+		subCategories = new LinkedList<subCategory>();
 	}
 	
-	public void update(String name) {
+	public void update(String name, String Description) {
 		this.categoryName = name;
+		this.Description = Description;
+	}
+
+	/**
+	 * 
+	 */
+	public void addSubCategory(subCategory SubCategory) {
+		// TODO implement here
+		this.subCategories.add(SubCategory);
+	}
+
+	/**
+	 * 
+	 */
+	public void deleteSubCategory(subCategory subCategory) {
+		// TODO implement here
+		this.subCategories.remove(subCategory);
+	}
+
+	public LinkedList<subCategory> getSubCategories() {
+		return this.subCategories;
 	}
 	
-	public void add_sub(subCategory sub) {
-		this.subCategories.add(sub);
-	}
-
-	public void set_sub(subCategory sub) {
-		this.current_subCategory = sub;
+	public String toString() {
+		return this.categoryName;
 	}
 	
+	public String getName() {
+		return this.categoryName;
+	}
 	
-	/**
-	 * 
-	 */
-	private String categoryID;
-
-	/**
-	 * 
-	 */
-	private static int categoryCount;
-
-	
-
-	/**
-	 * 
-	 */
-	private Category parentCategory;
-
-	/**
-	 * 
-	 */
-	private Collection<Product> products;
-
-
-
-
-
-
-	/**
-	 * 
-	 */
-	public void addSubCategory() {
-		// TODO implement here
+	public String getDescription() {
+		return this.Description;
 	}
-
-	/**
-	 * 
-	 */
-	public void deleteSubCategory() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void addProduct() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void deleteProduct() {
-		// TODO implement here
-	}
-
 }

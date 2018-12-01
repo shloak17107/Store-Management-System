@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.productsDisplay_Controller">
    <children>
       <AnchorPane maxHeight="1.7976931348623157E308" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" style="-fx-background-color: #52373B;">
          <children>
@@ -24,11 +26,6 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <ImageView fitHeight="25.0" fitWidth="90.0" layoutX="1.0" layoutY="17.0" pickOnBounds="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="16.5">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202018-10-29%20at%206.37.15%20PM.png" />
-               </image>
-            </ImageView>
             <Button layoutX="489.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #52373B;" text="Cart" textFill="WHITE" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="12.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
@@ -58,82 +55,30 @@
                   <Image url="@../icons/icons8-person_male.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="603.46533203125" layoutY="33.7685546875" strokeType="OUTSIDE" strokeWidth="0.0" text="Shloak Aggarwal" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="22.0">
+            <Text fx:id="txtAdminName" fill="WHITE" layoutX="603.46533203125" layoutY="33.7685546875" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Name" wrappingWidth="104.99998927116394" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="22.0">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Text>
+            <Label fx:id="lblRoomName" layoutX="13.0" layoutY="16.0" prefHeight="26.0" prefWidth="96.0" text="RoomName" textFill="#e8e2e2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="441.0" prefWidth="800.0">
          <children>
-            <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="442.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <AnchorPane>
-                     <children>
-                        <Button alignment="CENTER" layoutX="70.0" layoutY="49.0" mnemonicParsing="false" prefHeight="110.5" prefWidth="133.5" style="-fx-background-color: #EC5633;" text="Product 1" textFill="WHITE" AnchorPane.bottomAnchor="55.25" AnchorPane.leftAnchor="66.75" AnchorPane.rightAnchor="66.75" AnchorPane.topAnchor="55.25">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1">
-                     <children>
-                        <Button alignment="CENTER" layoutX="70.0" layoutY="49.0" mnemonicParsing="false" prefHeight="110.5" prefWidth="133.5" style="-fx-background-color: #EC5633;" text="Product 2" textFill="WHITE" AnchorPane.bottomAnchor="55.25" AnchorPane.leftAnchor="66.75" AnchorPane.rightAnchor="66.75" AnchorPane.topAnchor="55.25">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="277.0" layoutY="10.0" GridPane.columnIndex="2">
-                     <children>
-                        <Button alignment="CENTER" layoutX="70.0" layoutY="49.0" mnemonicParsing="false" prefHeight="110.5" prefWidth="133.5" style="-fx-background-color: #EC5633;" text="Product 3" textFill="WHITE" AnchorPane.bottomAnchor="55.25" AnchorPane.leftAnchor="66.75" AnchorPane.rightAnchor="66.75" AnchorPane.topAnchor="55.25">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="544.0" layoutY="10.0" GridPane.rowIndex="1">
-                     <children>
-                        <Button alignment="CENTER" layoutX="70.0" layoutY="49.0" mnemonicParsing="false" prefHeight="110.5" prefWidth="133.5" style="-fx-background-color: #EC5633;" text="Product 4" textFill="WHITE" AnchorPane.bottomAnchor="55.25" AnchorPane.leftAnchor="66.75" AnchorPane.rightAnchor="66.75" AnchorPane.topAnchor="55.25">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="231.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Button alignment="CENTER" layoutX="70.0" layoutY="49.0" mnemonicParsing="false" prefHeight="110.5" prefWidth="133.5" style="-fx-background-color: #EC5633;" text="Product 5" textFill="WHITE" AnchorPane.bottomAnchor="55.25" AnchorPane.leftAnchor="66.75" AnchorPane.rightAnchor="66.75" AnchorPane.topAnchor="55.25">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="277.0" layoutY="231.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <children>
-                        <Button alignment="CENTER" layoutX="70.0" layoutY="49.0" mnemonicParsing="false" prefHeight="110.5" prefWidth="133.5" style="-fx-background-color: #EC5633;" text="Product 6" textFill="WHITE" AnchorPane.bottomAnchor="55.25" AnchorPane.leftAnchor="66.75" AnchorPane.rightAnchor="66.75" AnchorPane.topAnchor="55.25">
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </GridPane>
+            <ListView fx:id="lsvProducts" layoutY="48.0" prefHeight="393.0" prefWidth="455.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="48.0" />
+            <Label fx:id="lblCategory" layoutX="22.0" layoutY="9.0" prefHeight="35.0" prefWidth="223.0" text="Products">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnUpdate" layoutX="548.0" layoutY="148.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="26.0" prefWidth="153.0" text="Update" />
+            <Button fx:id="btnDelete" layoutX="549.0" layoutY="198.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="26.0" prefWidth="153.0" text="Delete" />
+            <Button fx:id="btnRefresh" layoutX="346.0" layoutY="13.0" mnemonicParsing="false" onAction="#refreshButton" text="Refresh" />
+            <Button fx:id="btnCreate" layoutX="513.0" layoutY="19.0" mnemonicParsing="false" onAction="#createButton" text="Create" />
          </children>
       </AnchorPane>
    </children>
