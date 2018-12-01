@@ -9,33 +9,52 @@ public class subCategory {
 	 */
 	private String subCategoryName;
 	
+	private String Description;
+	
+	private Category parent;
+	
 	/**
 	 * 
 	 */
 	private LinkedList<Product> products;
 	
-	private Product current_product;
-	
-	private Category parent;
 
 	/**
 	 * Default constructor
 	 */
-	public subCategory(String Name, Category parent) {
+	public subCategory(String Name, String Description, Category parent) {
 		this.subCategoryName = Name;
+		this.Description = Description;
 		this.parent = parent;
+		this.products = new LinkedList<Product>();
 	}
 	
-	public void update(String name) {
+	public void update(String name, String Description) {
 		this.subCategoryName = name;
+		this.Description = Description;
 	}
 	
-	public void add_product(Product product) {
+	public void addProduct(Product product) {
 		this.products.add(product);
 	}
 
-	public void set_product(Product product) {
-		this.current_product = product;
+	public void deleteProduct(Product product) {
+		this.products.remove(product);
+	}
+	
+	public String toString() {
+		return this.subCategoryName;
+	}
+	
+	public LinkedList<Product> getProducts() {
+		return this.products;
+	}
+	
+	public String getName() {
+		return this.subCategoryName;
 	}
 
+	public String getDescription() {
+		return this.Description;
+	}
 }

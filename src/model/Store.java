@@ -34,14 +34,6 @@ public class Store extends room{
 		storeCount+=1;
 	}
 	
-	public void add_category(Category category) {
-		this.Categories.add(category);
-	}
-	
-	public void delete_category(Category category) {
-		this.Categories.remove(category);
-	}
-	
 	public void set_current(Category category) {
 		this.Current_Category = category;
 	}

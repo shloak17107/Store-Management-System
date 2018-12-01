@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -20,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../styling/cart.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../styling/cart.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.cart_Controller">
    <children>
       <AnchorPane maxHeight="1.7976931348623157E308" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" style="-fx-background-color: #52373B;">
          <children>
@@ -39,18 +33,6 @@
                   <Image url="@../../../../../../../Desktop/Screen%20Shot%202018-10-29%20at%206.37.15%20PM.png" />
                </image>
             </ImageView>
-            <Button layoutX="489.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #52373B;" text="Cart" textFill="WHITE" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="12.0">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-               <graphic>
-                  <ImageView pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/icons8-shopping-cart-24.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <Button layoutX="564.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #52373B;" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="12.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
@@ -79,11 +61,11 @@
          <children>
             <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="603.0" prefViewportWidth="660.0">
                <content>
-                  <VBox>
+                  <VBox prefHeight="427.0" prefWidth="664.0">
                      <children>
-                        <AnchorPane prefHeight="30.0" prefWidth="200.0">
+                        <AnchorPane prefHeight="72.0" prefWidth="664.0">
                            <children>
-                              <Label styleClass="header-1" text="Shopping Cart" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+                              <Label layoutX="76.0" layoutY="5.0" styleClass="header-1" text="Shopping Cart" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="76.0" AnchorPane.topAnchor="5.0">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -92,47 +74,25 @@
                               <Label layoutX="544.0" layoutY="13.0" prefWidth="75.0" text="Quantity" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="2.0" prefWidth="638.0">
+                        <AnchorPane prefHeight="358.0" prefWidth="664.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-                                 <image>
-                                    <Image url="@../product_images/sample_product.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="270.0" layoutY="24.0" prefHeight="25.0" prefWidth="129.0" text="Name of Product" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="10.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="270.0" layoutY="60.0" text="Description" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="40.0" />
-                              <Label layoutX="473.0" layoutY="24.0" text="Price" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="10.0" />
-                              <ChoiceBox layoutX="526.0" layoutY="37.0" prefWidth="75.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
-                              <Button layoutX="561.0" layoutY="95.0" mnemonicParsing="false" text="Delete" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+                              <ScrollPane layoutX="9.0" layoutY="29.0" prefHeight="286.0" prefWidth="262.0">
+                                 <content>
+                                    <ListView fx:id="lsvProduct" prefHeight="285.0" prefWidth="260.0" />
+                                 </content>
+                              </ScrollPane>
+                              <ScrollPane layoutX="397.0" layoutY="27.0" prefHeight="286.0" prefWidth="126.0">
+                                 <content>
+                                    <ListView fx:id="lsvPrice" prefHeight="284.0" prefWidth="123.0" />
+                                 </content>
+                              </ScrollPane>
+                              <ScrollPane layoutX="551.0" layoutY="27.0" prefHeight="286.0" prefWidth="90.0">
+                                 <content>
+                                    <ListView fx:id="lsvUnit" prefHeight="284.0" prefWidth="88.0" />
+                                 </content></ScrollPane>
+                              <Button fx:id="btnRemove" layoutX="103.0" layoutY="318.0" mnemonicParsing="false" onAction="#Remove_button" text="Remove" />
+                              <Button fx:id="btnRefresh" layoutX="562.0" layoutY="317.0" mnemonicParsing="false" onAction="#Refresh_button" text="Refresh" />
                            </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="2.0" prefWidth="638.0">
-                           <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-                                 <image>
-                                    <Image url="@../product_images/sample_product2.jpeg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="270.0" layoutY="24.0" prefHeight="25.0" prefWidth="129.0" text="Name of Product" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="10.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="270.0" layoutY="60.0" text="Description" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="40.0" />
-                              <Label layoutX="473.0" layoutY="24.0" text="Price" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="10.0" />
-                              <ChoiceBox layoutX="526.0" layoutY="37.0" prefWidth="75.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
-                              <Button layoutX="561.0" layoutY="95.0" mnemonicParsing="false" text="Delete" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
                         </AnchorPane>
                      </children>
                   </VBox>
@@ -145,10 +105,12 @@
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Button layoutX="23.0" layoutY="369.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #52373B;" text="Checkout" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                  <Button fx:id="btnCheckout" layoutX="20.0" layoutY="365.0" mnemonicParsing="false" onAction="#Checkout_button" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #52373B;" text="Checkout" textFill="WHITE" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
+                  <Label fx:id="lblTotal" layoutX="15.0" layoutY="67.0" prefHeight="43.0" prefWidth="101.0" text="total" />
+                  <Button fx:id="btnExit" layoutX="21.0" layoutY="411.0" mnemonicParsing="false" onAction="#Exit_button" prefHeight="26.0" prefWidth="89.0" text="Buy Later!" />
                </children>
             </AnchorPane>
          </children>

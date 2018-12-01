@@ -11,86 +11,105 @@ public class Product {
 	 * 
 	 */
 	private String productName;
+	
+	private String Description;
+	
+	private int Units;
+	
+	private int fixedCost;
+	
+	private int carryingCost;
+	
+	private int Demand;
+	
+	private int price;
+	
 	private subCategory parent;
 	
-public class Product {
 
 	/**
 	 * Default constructor
 	 */
-	public Product(String Name, subCategory parent) {
+	public Product(String Name, String Description, int Units, int fixedCost, int carryingCost, int Demand, int price, subCategory parent) {
+		this.productName = Name;
+		this.Description = Description;
+		this.Units = Units;
+		this.fixedCost = fixedCost;
+		this.carryingCost = carryingCost;
+		this.Demand = Demand;
+		this.price = price;
 		this.parent = parent;
 	}
 
-	/**
-	 * 
-	 */
-	private String productID;
 
 	/**
 	 * 
 	 */
-	private static int productCount;
-
-
-	/**
-	 * 
-	 */
-	private float carryingCost_H;
-
-	/**
-	 * 
-	 */
-	private int demand_K;
-
-	/**
-	 * 
-	 */
-	private float EOQ;
-
-
-	/**
-	 * 
-	 */
-	private <T> location;
-
-	/**
-	 * 
-	 */
-	private int quantity;
-
-	/**
-	 * 
-	 */
-	private float cost;
-
-	/**
-	 * 
-	 */
-	private String description;
-
-
-
-
-	/**
-	 * 
-	 */
-	public void calculateEOQ() {
-		// TODO implement here
+	public int calculateEOQ() {
+		int EOQ = (int) Math.ceil(Math.sqrt(2*this.fixedCost*this.Demand/this.carryingCost));
+		return EOQ;
 	}
 
 	/**
 	 * 
 	 */
-	public void updateCarryingCost() {
+	public void update(String Name, String Description, int Units, int fixedCost, int carryingCost, int Demand, int price) {
 		// TODO implement here
+		this.productName = Name;
+		this.Description = Description;
+		this.Units = Units;
+		this.fixedCost = fixedCost;
+		this.carryingCost = carryingCost;
+		this.Demand = Demand;
+		this.price = price;
+	}
+	
+	public String toString() {
+		return this.productName;
 	}
 
-	/**
-	 * 
-	 */
-	public void updateDemand() {
-		// TODO implement here
+
+	public String getProductName() {
+		return productName;
+	}
+
+
+	public String getDescription() {
+		return Description;
+	}
+
+
+	public int getUnits() {
+		return Units;
+	}
+
+
+	public int getFixedCost() {
+		return fixedCost;
+	}
+
+
+	public int getCarryingCost() {
+		return carryingCost;
+	}
+
+
+	public int getDemand() {
+		return Demand;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public subCategory getParent() {
+		return parent;
+	}
+	
+	public void reduceUnits(int units) {
+		this.Units -= units;
 	}
 
 }

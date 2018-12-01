@@ -5,12 +5,36 @@ import java.util.*;
 /**
  * 
  */
-public class EndUser extends User {
+public class EndUser {
+	
+	private String Name;
+	
+	private String Password;
+	
+	private Cart cart;
+	
+	
 
 	/**
 	 * Default constructor
 	 */
 	public EndUser() {
+		this.Name = "EndUser";
+		this.Password = "Password";
+		this.cart = new Cart();
+		
+	}
+	
+	public Cart getCart() {
+		return this.cart;
+	}
+	
+	/**
+	 * 
+	 */
+	public void checkOut() {
+		this.cart.checkOut();
+		this.cart = new Cart();
 	}
 
 
@@ -29,19 +53,13 @@ public class EndUser extends User {
 	}
 
 	/**
-	 * @param additionalFunds
-	 */
-	public void addFunds(int additionalFunds) {
-		// TODO implement here
-	}
-
-	/**
 	 * @param store 
 	 * @param product 
 	 * @param quantity
 	 */
-	public void addToCart(Store store, Product product, int quantity) {
+	public void addToCart(Product product, int Units) {
 		// TODO implement here
+		this.cart.add(product, Units);
 	}
 
 	/**
@@ -52,11 +70,5 @@ public class EndUser extends User {
 		return null;
 	}
 
-	/**
-	 * 
-	 */
-	public void checkOut() {
-		// TODO implement here
-	}
 
 }
