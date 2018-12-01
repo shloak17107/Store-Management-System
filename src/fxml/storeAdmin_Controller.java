@@ -1,63 +1,136 @@
 package fxml;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
+import model.Category;
+import model.Main;
+import model.Product;
 import model.Store;
 import model.room;
+import model.subCategory;
 
 public class storeAdmin_Controller {
 	
-	@FXML
-	private ListView<GridPane> lsvCategory;
+private room Room;
+	
+	private Main application;
+	
+	private String labelCategories;
+	
+	private Category parent_category;
+	
+	private ObservableList<Category> allCategories;
+	
+	private ObservableList<subCategory> allSubCategories;
 	
 	@FXML
-	private TextField txtName;
+	private Label lblCategory;
 	
 	@FXML
-	private GridPane top_bar;
+	private Label lblRoomName;
 	
-	private room myStore;
+	@FXML
+	private Text txtAdminName;
 	
-	public void setApp(room myStore) {
-		this.myStore = myStore;
+	@FXML
+	private ListView lsvGeneral;
+	
+	@FXML
+	private TextField txName;
+	
+	@FXML
+	private Button btnRefresh;
+	
+	public void setApp(room Room, Main application, String labelCategories, Category parent_category) {
+		this.Room = Room;
+		this.application = application;
+		this.labelCategories = labelCategories;
+		this.parent_category = parent_category;
+		lblCategory.setText(labelCategories);
+		lblRoomName.setText(Room.getRoomName());
+		txtAdminName.setText(Room.getAdmin().getName());
+		this.defaultSetup();
 	}
 	
 	public storeAdmin_Controller() {
-		lsvCategory = new ListView();
-		lsvCategory.setEditable(true);
-	}
- 	
-	
-	public GridPane create_object(String name) {
-		GridPane obj = new GridPane();
-		obj.setMinWidth(lsvCategory.getWidth());
-		
-		Button Name = new Button(name);
-		Button Delete = new Button("Delete");
-		Button Update = new Button("Update");
-		
-		Name.setPrefWidth(650);
-		
-		obj.add(Name,0,0);
-		obj.add(Delete,1,0);
-		obj.add(Update,2,0);
-		
-		return obj;
+		lsvGeneral = new ListView();
 	}
 	
-	public void Create_button(ActionEvent event) {
-		String name = txtName.getText();
-		if (name!="") {
-			GridPane List_item = create_object(name);
-			lsvCategory.getItems().add(List_item);
-			txtName.setText("");
+	public void defaultSetup() {
+		if (labelCategories.equals("Categories")) {
+			allCategories = FXCollections.observableList(this.Room.getCategories());
+			lsvGeneral.setItems(allCategories);
+		}
+		else {
+			allSubCategories = FXCollections.observableList(parent_category.getSubCategories());
+			lsvGeneral.setItems(allSubCategories);
 		}
 	}
+	
+	public void openButton() {
+		if (lsvGeneral.getSelectionModel().getSelectedItem() != null) {
+			if (this.labelCategories.equals("Categories")) {
+				Category toOpen = (Category) lsvGeneral.getSelectionModel().getSelectedItem();
+				this.application.warehouseAdmin(Room, "subCategories", toOpen);
+			}
+			else if (this.labelCategories.equals("subCategories")) {
+				subCategory toOpen = (subCategory) lsvGeneral.getSelectionModel().getSelectedItem();
+				this.application.productsDisplay(Room, toOpen);
+			}
+		}		
+	}
+	
+	public void refreshButton() {
+		this.defaultSetup();
+	}
+	
+	public void createButton() {
+		String Name = txName.getText();
+		if (!Name.equals("")) {
+			if (this.labelCategories.equals("Categories"))
+				Room.getAdmin().addCategory(Name, "No Description!");
+			else if (this.labelCategories.equals("subCategories"))
+				Room.getAdmin().addSubCategory(Name, "NO Description!", this.parent_category);
+			this.defaultSetup();
+		}
+		txName.setText("");
+	}
+	
+	public void updateButton() {
+		if (lsvGeneral.getSelectionModel().getSelectedItem() != null) {
+			if (this.labelCategories.equals("Categories")) {
+				this.application.updateCategory(this.Room.getAdmin(), (Category) lsvGeneral.getSelectionModel().getSelectedItem(), null);
+			}
+			else if (this.labelCategories.equals("subCategories")) {
+				this.application.updateCategory(this.Room.getAdmin(), null, (subCategory) lsvGeneral.getSelectionModel().getSelectedItem());
+			}
+		}
+	}
+	
+	public void deleteButton() {
+		if (lsvGeneral.getSelectionModel().getSelectedItem() != null) {
+			if (this.labelCategories.equals("Categories")) {
+				Category selected = (Category) lsvGeneral.getSelectionModel().getSelectedItem();
+				this.Room.delete_category(selected);
+			}
+			else if (this.labelCategories.equals("subCategories")) {
+				subCategory selected = (subCategory) lsvGeneral.getSelectionModel().getSelectedItem();
+				this.Room.delete_subCategory(parent_category, selected);
+			}
+			this.defaultSetup();
+		}
+		
+	}
+	
 
 }

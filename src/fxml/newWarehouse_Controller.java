@@ -46,6 +46,6 @@ public class newWarehouse_Controller {
        
        public void Create_button(ActionEvent event) {
     	   this.SUser.createWarehouse(txWarehouseName.getText(), txWarehouseID.getText(), txAdminName.getText(), txAdminID.getText(), txPassword.getText());
-    	   this.SuperController.add_Warehouse(SUser.getDatabase().getWarehouses().get(SUser.getDatabase().getWarehouses().size() - 1), SUser.getDatabase().getWarehouses().size() - 1);
+    	   this.SuperController.defaultSetup();
        }
 }

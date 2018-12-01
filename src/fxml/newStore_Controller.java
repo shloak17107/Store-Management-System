@@ -45,7 +45,7 @@ public class newStore_Controller {
        
        public void Create_button(ActionEvent event) {
     	   this.SUser.createStore(txStoreName.getText(), txStoreID.getText(), txAdminName.getText(), txAdminID.getText(), txPassword.getText());
-    	   this.SuperController.add_Store(SUser.getDatabase().getStores().get(SUser.getDatabase().getStores().size() - 1), SUser.getDatabase().getStores().size() - 1);
+    	   this.SuperController.defaultSetup();
        }
        
 }
