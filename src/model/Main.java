@@ -1,14 +1,22 @@
 package model;
 
 
+import fxml.cart_Controller;
 import fxml.categoriesDisplay_Controller;
 import fxml.endUser_Controller;
 import fxml.loginController;
+import fxml.newProduct_Controller;
 import fxml.newStore_Controller;
 import fxml.newWarehouse_Controller;
+import fxml.otherWarehouses_Controller;
+import fxml.productOrder_Controller;
+import fxml.productView_Controller;
+import fxml.productsDisplay_Controller;
 import fxml.storeAdmin_Controller;
 import fxml.superUser_Controller;
+import fxml.updateCategory_Controller;
 import fxml.updateLink_Controller;
+import fxml.updateProduct_Controller;
 import fxml.warehouseAdmin_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -95,18 +103,6 @@ public class Main extends Application {
 		      e.printStackTrace();
 		   }
 		       }
-		 
-		public void Room(room Room) {
-			FXMLLoader loader;
-			try {
-				loader = new_stage("/fxml/categoriesDisplay.fxml");
-				categoriesDisplay_Controller categoriesDisplay = loader.getController();
-				categoriesDisplay.setApp(Room);
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 		
 		 public void updateLink(SuperUser SUser) {
 		 FXMLLoader loader;
@@ -120,24 +116,24 @@ public class Main extends Application {
 		 }
 		}
 
-	public void storeAdmin(room myStore) {
+	public void storeAdmin(room myStore, String labelCategories, Category parent_category) {
 		FXMLLoader loader;
 		try {
 			loader = new_stage("/fxml/storeAdmin.fxml");
 			storeAdmin_Controller storeAdmin = loader.getController();
-			storeAdmin.setApp(myStore);
+			storeAdmin.setApp(myStore, this, labelCategories, parent_category);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void warehouseAdmin(room myWarehouse) {
+	public void warehouseAdmin(room myWarehouse, String labelCategories, Category parent_category) {
 		FXMLLoader loader;
 		try {
 			loader = new_stage("/fxml/warehouseAdmin.fxml");
 			warehouseAdmin_Controller warehouseAdmin = loader.getController();
-			warehouseAdmin.setApp(myWarehouse);
+			warehouseAdmin.setApp(myWarehouse, this, labelCategories, parent_category);;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -149,7 +145,115 @@ public class Main extends Application {
 		try {
 			loader = new_stage("/fxml/enduserStoresDisplay.fxml");
 			endUser_Controller endUser = loader.getController();
-			endUser.setApp(this.APP.getDatabase().getStores());
+			endUser.setApp(this);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void categoriesDisplay(room Room, String userType, String labelCategories, Category parent_category, subCategory parent_subCategory, EndUser endUser) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/categoriesDisplay.fxml");
+			categoriesDisplay_Controller categoryDisplay = loader.getController();
+			categoryDisplay.setApp(Room, this, userType, labelCategories, parent_category, parent_subCategory, endUser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void otherWarehouses(room Warehouse) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/otherWarehouses.fxml");
+			otherWarehouses_Controller otherWarehouses = loader.getController();
+			otherWarehouses.setApp(Warehouse, this);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateCategory(Admin admin, Category category, subCategory SubCategory) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/updateCategory.fxml");
+			updateCategory_Controller updateCategory = loader.getController();
+			updateCategory.setApp(admin, category, SubCategory);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void productsDisplay(room Room, subCategory SubCategory) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/productsDisplay.fxml");
+			productsDisplay_Controller productsDisplay = loader.getController();
+			productsDisplay.setApp(Room, this, SubCategory);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void newProduct(Admin admin, subCategory SubCategory) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/newProduct.fxml");
+			newProduct_Controller newProduct = loader.getController();
+			newProduct.setApp(admin, SubCategory);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateProduct(Admin admin, Product product) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/Update_Product.fxml");
+			updateProduct_Controller updateProduct = loader.getController();
+			updateProduct.setApp(admin, product);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void productView(Product product) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/ProductView.fxml");
+			productView_Controller productView = loader.getController();
+			productView.setApp(product);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void productOrder(Product product, room Room, EndUser endUser) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/productOrder_endUser.fxml");
+			productOrder_Controller productOrder = loader.getController();
+			productOrder.setApp(product, Room, this, endUser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void Cart(EndUser endUser, room Room) {
+		FXMLLoader loader;
+		try {
+			loader = new_stage("/fxml/cart.fxml");
+			cart_Controller Cart = loader.getController();
+			Cart.setApp(endUser, Room);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

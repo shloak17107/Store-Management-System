@@ -110,7 +110,7 @@ public class loginController {
 				for (int i=0;i<StoreAdmins.size();i++) {
 					Admin current = StoreAdmins.get(i);
 					if (UserID.equals(current.getID()) && Pswd.equals(current.getPswd())) {
-						this.application.storeAdmin(current.getMyRoom());
+						this.application.storeAdmin(current.getMyRoom(), "Categories", null);
 						this.default_setUp();
 					}
 					else if (i == StoreAdmins.size()-1) {
@@ -123,7 +123,7 @@ public class loginController {
 				for (int i=0;i<WarehouseAdmins.size();i++) {
 					Admin current = WarehouseAdmins.get(i);
 					if (UserID.equals(current.getID()) && Pswd.equals(current.getPswd())) {
-						this.application.warehouseAdmin(current.getMyRoom());
+						this.application.warehouseAdmin(current.getMyRoom(), "Categories", null);;
 						this.default_setUp();
 					}
 					else if (i == WarehouseAdmins.size()-1) {
