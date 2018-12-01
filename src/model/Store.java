@@ -1,12 +1,13 @@
 package model;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Store extends room{
+public class Store extends room implements Serializable{
 	
 
 	
@@ -34,9 +35,10 @@ public class Store extends room{
 		storeCount+=1;
 	}
 	
-	public void set_current(Category category) {
-		this.Current_Category = category;
+	public void linkWarehouse(Warehouse warehouse) {
+		this.warehouse = warehouse;
 	}
+	
 	/**
 	 * 
 	 */

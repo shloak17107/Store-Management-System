@@ -1,6 +1,8 @@
 package model;
 
 
+import java.io.IOException;
+import java.io.Serializable;
 import fxml.cart_Controller;
 import fxml.categoriesDisplay_Controller;
 import fxml.endUser_Controller;
@@ -19,22 +21,24 @@ import fxml.updateLink_Controller;
 import fxml.updateProduct_Controller;
 import fxml.warehouseAdmin_Controller;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
 
-public class Main extends Application {
+public class Main extends Application implements Serializable{
 	
 	private static Main mainInstance;
 	private Parent root;
 	private system APP;
 	
-    public Main() {
+    public Main() throws ClassNotFoundException, IOException {
         mainInstance = this;
         APP = new system();
     }
@@ -68,6 +72,8 @@ public class Main extends Application {
 		}
 	}
 	
+	
+	
 	public void SuperUser() {
 		FXMLLoader loader;
 		try {
@@ -85,7 +91,7 @@ public class Main extends Application {
 		try {
 			loader = new_stage("/fxml/newWarehouse.fxml");
 		    newWarehouse_Controller newWarehouse = loader.getController();
-		    newWarehouse.setApp(SUser, SuperController);
+		    newWarehouse.setApp(SUser, SuperController, this);
 		  }
 		  catch (Exception e) {
 		  e.printStackTrace();
@@ -104,12 +110,12 @@ public class Main extends Application {
 		   }
 		       }
 		
-		 public void updateLink(SuperUser SUser) {
+		 public void updateLink(SuperUser SUser, Store store) {
 		 FXMLLoader loader;
 		 try {
 		 loader = new_stage("/fxml/updateLink.fxml");
 		 updateLink_Controller UpdateLink = loader.getController();
-		 UpdateLink.setApp(SUser);
+		 UpdateLink.setApp(SUser, this, store);
 		  }
 		 catch (Exception e) {
 		 e.printStackTrace();
@@ -267,6 +273,12 @@ public class Main extends Application {
 		root = (Parent) loader.load();
 		stage.setScene(new Scene(root));
 		stage.show();
+		stage.setOnCloseRequest( event -> {try {
+			this.getSystem().serialize();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};} );
 		return loader;
 	}
 	

@@ -70,7 +70,10 @@ public class superUser_Controller {
 	}
 		       
 	public void updateLink_button(ActionEvent event) {
-		this.application.updateLink(this.application.getSystem().getDatabase().getSuperUser());
+		Store toOpen = (Store) lsvStore.getSelectionModel().getSelectedItem();
+		
+		if (toOpen!=null)
+		this.application.updateLink(this.application.getSystem().getDatabase().getSuperUser(), toOpen);
 	}
 	
 	public void Store_button() {

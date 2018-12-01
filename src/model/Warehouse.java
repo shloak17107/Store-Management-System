@@ -1,65 +1,31 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Warehouse extends room{
+public class Warehouse extends room implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private LinkedList<Store> stores;
 
 	/**
 	 * Default constructor
 	 */
 	public Warehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
 		super(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
+		stores = new LinkedList<Store>();
 	}
 
-	/**
-	 * 
-	 */
-	private String warehouseID;
-
-	/**
-	 * 
-	 */
-	private static int warehouseCount;
-
-	/**
-	 * 
-	 */
-	private String warehouseName;
-
-	/**
-	 * 
-	 */
-	private Collection<Store> stores;
-
-	/**
-	 * 
-	 */
-	private WarehouseAdministrator admin;
-
-	/**
-	 * 
-	 */
-	private Category topCategory;
-
-	/**
-	 * 
-	 */
-	private Collection<Product> allProducts;
-
-	/**
-	 * 
-	 */
-	private float fixedCost_D;
-
-
-
-
-
-
-
+	
+	public void linkStore(Store store) {
+		this.stores.add(store);
+	}
+	
 	/**
 	 * @param store 
 	 * @param records

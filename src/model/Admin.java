@@ -1,12 +1,13 @@
 package model;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Admin {
+public class Admin implements Serializable{
 	
 	private String name;
 	private String ID;

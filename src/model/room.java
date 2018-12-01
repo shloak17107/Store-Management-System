@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class room {
+public class room implements Serializable{
 	
 	/**
 	 * 

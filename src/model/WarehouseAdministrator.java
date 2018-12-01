@@ -1,16 +1,15 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class WarehouseAdministrator extends Admin {
+public class WarehouseAdministrator extends Admin implements Serializable{
 
-	/**
-	 * Default constructor
-	 */
-	public WarehouseAdministrator() {
+	public WarehouseAdministrator(String name, String ID, String pswd, room myRoom) {
+		super(name, ID, pswd, myRoom);
 	}
 
 	/**

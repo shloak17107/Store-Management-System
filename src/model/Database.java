@@ -1,11 +1,15 @@
 package model;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Database {
+public class Database implements Serializable{
 
 	/**
 	 * Default constructor
@@ -35,12 +39,15 @@ public class Database {
 	private LinkedList<Admin> StoreAdmins;
 	
 	public Database() {
-		this.SUser = new SuperUser(this, "SuperUser_Name", "SuperUser_ID", "SuperUser_pswd");
+		this.SUser = new SuperUser(this, "SUser", "SUser", "SUser");
 		warehouses = new LinkedList<Warehouse>();
 		stores = new LinkedList<Store>();
 		WarehouseAdmins = new LinkedList<Admin>();
 		StoreAdmins = new LinkedList<Admin>();
 	}
+		
+	
+
 	
 	public void add_store(Store store) {
 		stores.add(store);

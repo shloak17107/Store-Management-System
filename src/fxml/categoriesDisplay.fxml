@@ -20,18 +20,13 @@
    <children>
       <AnchorPane prefHeight="46.0" prefWidth="800.0">
          <children>
-            <AnchorPane maxHeight="1.7976931348623157E308" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="800.0" style="-fx-background-color: #52373B;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="apBar" maxHeight="1.7976931348623157E308" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="800.0" style="-fx-background-color: #52373B;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button maxHeight="-Infinity" mnemonicParsing="false" prefHeight="34.0" style="-fx-background-color: #EC5633; -fx-background-radius: 0;" text="Search" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="12.0">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Button>
-                  <TextField maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="34.0" prefWidth="437.0" style="-fx-background-radius: 0;" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="12.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TextField>
                   <Button fx:id="btnCart" layoutX="489.0" layoutY="14.0" mnemonicParsing="false" onAction="#Cart_button" style="-fx-background-color: #52373B;" text="Cart" textFill="WHITE" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="12.0">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
@@ -71,6 +66,11 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="txtSearch" layoutX="143.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="34.0" prefWidth="332.0" promptText="Product" style="-fx-background-radius: 0;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
                </children>
             </AnchorPane>
          </children>
@@ -105,7 +105,7 @@
                      </children>
                   </VBox>
                   <Button fx:id="btnOpen" layoutX="93.0" layoutY="324.0" mnemonicParsing="false" onAction="#openButton" prefHeight="43.0" prefWidth="100.0" text="Open" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="127.0" prefHeight="95.0" prefWidth="286.0" text="Description">
+                  <Label fx:id="lblDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="127.0" prefHeight="95.0" prefWidth="286.0" text="Description">
                      <font>
                         <Font size="15.0" />
                      </font>

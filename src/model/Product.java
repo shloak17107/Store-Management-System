@@ -1,11 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Product {
+public class Product implements Serializable{
 	
 	/**
 	 * 

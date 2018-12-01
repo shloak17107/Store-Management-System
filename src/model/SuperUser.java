@@ -1,11 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class SuperUser {
+public class SuperUser implements Serializable{
 
 	/**
 	 * Default constructor
@@ -66,8 +67,9 @@ public class SuperUser {
 	 * @param warehouse 
 	 * @param store
 	 */
-	public void link(Warehouse warehouse, Store store) {
-		// TODO implement here
+	public void updateLink(Warehouse warehouse, Store store) {
+		store.linkWarehouse(warehouse);
+		warehouse.linkStore(store);
 	}
 
 	/**

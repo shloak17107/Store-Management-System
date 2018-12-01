@@ -1,11 +1,16 @@
 package fxml;
 
+import org.controlsfx.control.textfield.TextFields;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -51,6 +56,9 @@ public class categoriesDisplay_Controller {
 	private ListView lsvGeneral;
 	
 	@FXML
+	private Label lblDescription;
+	
+	@FXML
 	private Button btnOpen;
 	
 	@FXML
@@ -61,6 +69,12 @@ public class categoriesDisplay_Controller {
 	
 	@FXML
 	private AnchorPane apBar;
+	
+	@FXML
+	private Button btnSort;
+	
+	@FXML
+	private TextField txtSearch;
 	
 	public void setApp(room Room, Main application, String userType, String labelCategories, Category parent_category, subCategory parent_subCategory, EndUser endUser) {
 		this.Room = Room;
@@ -75,8 +89,14 @@ public class categoriesDisplay_Controller {
 		txtUserType.setText(userType);
 		this.defaultSetup();
 		if (this.userType.equals("endUser") && this.labelCategories.equals("Products")) {
-			Button sort = new Button("Sort");
-			vboxSort.getChildren().add(sort);
+			btnSort = new Button("Sort");
+			vboxSort.getChildren().add(btnSort);
+			TextFields.
+			btnSort.setOnAction(new EventHandler<ActionEvent>() {
+			    @Override public void handle(ActionEvent e) {
+					lsvGeneral.setItems(allProducts.sorted());
+			    }
+			});
 		}
 		if (!this.userType.equals("endUser"))
 			this.apBar.getChildren().remove(btnCart);
@@ -84,9 +104,21 @@ public class categoriesDisplay_Controller {
 	
 	public categoriesDisplay_Controller() {
 		this.lsvGeneral = new ListView();
-		vboxSort = new VBox();
-			
+		vboxSort = new VBox();	
 	}
+	
+//	@FXML public void initialize() {
+//		lsvGeneral.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Category>() {
+//
+//			@Override
+//			public void changed(ObservableValue<? extends Category> arg0, Category arg1, Category arg2) {
+//				// TODO Auto-generated method stub
+//				lblDescription.setText(arg2.getDescription());
+//				
+//			}
+//			
+//		});
+//	}
 	
 	public void defaultSetup() {
 		if (this.labelCategories.equals("Categories")) {
@@ -129,4 +161,8 @@ public class categoriesDisplay_Controller {
 		this.application.Cart(endUser, null);
 	}
 	
+//	public void setDescription() {
+//		if (this.labelCategories.equals("Categories"))
+//	}
+
 }

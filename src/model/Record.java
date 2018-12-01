@@ -1,11 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Record {
+public class Record implements Serializable{
 
 	/**
 	 * Default constructor
