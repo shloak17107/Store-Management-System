@@ -8,9 +8,10 @@ import java.util.*;
  */
 public class Warehouse extends room implements Serializable{
 	
-	/**
-	 * 
-	 */
+	/** Generated serial version ID */
+	private static final long serialVersionUID = -6126848837759993505L;
+	
+	/** the list of all store */
 	private LinkedList<Store> stores;
 
 	/**
@@ -21,12 +22,14 @@ public class Warehouse extends room implements Serializable{
 		stores = new LinkedList<Store>();
 	}
 
-	
+	/** adds provided store to the list of all stores */
 	public void linkStore(Store store) {
 		this.stores.add(store);
 	}
 	
 	/**
+	 * sends ordered products to provided store
+	 * 
 	 * @param store 
 	 * @param records
 	 */
@@ -35,6 +38,8 @@ public class Warehouse extends room implements Serializable{
 	}
 
 	/**
+	 * searches for the product matching the product name
+	 * 
 	 * @param productName 
 	 * @return
 	 */
@@ -44,15 +49,17 @@ public class Warehouse extends room implements Serializable{
 	}
 
 	/**
-	 * 
+	 * orders more stock of products
 	 */
 	public void orderInventory() {
 		// TODO implement here
 	}
 
 	/**
-	 * @param warehouses 
-	 * @param product 
+	 * chooses most appropriate warehouse for requesting help to fulfill an order
+	 * 
+	 * @param warehouses
+	 * @param product
 	 * @return
 	 */
 	public Warehouse chooseWarehouse(Collection<Warehouse> warehouses, Product product) {
@@ -61,6 +68,8 @@ public class Warehouse extends room implements Serializable{
 	}
 
 	/**
+	 * order products from alternate warehouse
+	 * 
 	 * @param warehouse 
 	 * @param product
 	 */
@@ -69,14 +78,14 @@ public class Warehouse extends room implements Serializable{
 	}
 
 	/**
-	 * 
+	 * updates the fixed cost
 	 */
 	public void updateFixedCost() {
 		// TODO implement here
 	}
 
 	/**
-	 * 
+	 * generates alert
 	 */
 	public void generateAlert() {
 		// TODO implement here

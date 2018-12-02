@@ -11,15 +11,19 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * 
+ * The {@code system} class handles the database externally
+ * and takes care of its serialization and deserialization.
  */
-public class system implements Serializable{
+public class MainSystem {
 	
 	/**
-	 * 
+	 * reference to the database
 	 */
 	private Database db;
 	
+	/**
+	 * reference to the superuser
+	 */
 	private SuperUser super_user;
 
 	/**
@@ -27,7 +31,7 @@ public class system implements Serializable{
 	 * @throws IOException 
 	 * @throws ClassNotFoundException 
 	 */
-	public system() throws ClassNotFoundException, IOException {
+	public MainSystem() throws ClassNotFoundException, IOException {
 		db = this.deserialize();
 		super_user = db.getSuperUser();
 	}
@@ -41,16 +45,15 @@ public class system implements Serializable{
 	private User currentUser;
 
 
-
 	/**
-	 * @param db 
-	 * @param filename
+	 * Serializes the database.
+	 * @throws IOException
 	 */
 	public void serialize() throws IOException{
 		ObjectOutputStream out = null;
 		
 		try {
-			out = new ObjectOutputStream(new FileOutputStream("db"));
+			out = new ObjectOutputStream(new FileOutputStream("db.txt"));
 			out.writeObject(this.db);
 		}
 		finally {
@@ -60,8 +63,11 @@ public class system implements Serializable{
 	}
 
 	/**
-	 * @param filename 
-	 * @return
+	 * Deserializes the database
+	 * 
+	 * @return the database
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public Database deserialize() throws IOException, ClassNotFoundException{
 		ObjectInputStream in = null;
@@ -86,16 +92,6 @@ public class system implements Serializable{
             return null;
         }
 		
-	}
-	
-	
-
-	/**
-	 * @return
-	 */
-	private String[] resetSuperUser() {
-		// TODO implement here
-		return null;
 	}
 
 }

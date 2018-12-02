@@ -1,6 +1,5 @@
 package fxml;
 
-import org.controlsfx.control.textfield.TextFields;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,7 +90,6 @@ public class categoriesDisplay_Controller {
 		if (this.userType.equals("endUser") && this.labelCategories.equals("Products")) {
 			btnSort = new Button("Sort");
 			vboxSort.getChildren().add(btnSort);
-			TextFields.
 			btnSort.setOnAction(new EventHandler<ActionEvent>() {
 			    @Override public void handle(ActionEvent e) {
 					lsvGeneral.setItems(allProducts.sorted());

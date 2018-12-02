@@ -1,23 +1,34 @@
 package model;
 
 import java.io.Serializable;
-import java.util.*;
 
 /**
  * 
  */
 public class SuperUser implements Serializable{
 
-	/**
-	 * Default constructor
-	 */
-	
+	/** Generated serial version ID */
+	private static final long serialVersionUID = 6404178839321868426L;
+
+	/** reference to the main database */
 	private Database db;
 
+	/** name of the superuser */
 	private String Name;
+	
+	/** unique id of the superuser */
 	private String ID;
+	
+	/** password of the superuser */
 	private String pswd;
 	
+	/**
+	 * constructor
+	 * @param db
+	 * @param Name
+	 * @param ID
+	 * @param pswd
+	 */
 	public SuperUser(Database db, String Name, String ID, String pswd) {
 		this.db = db;
 		this.Name = Name;
@@ -25,28 +36,42 @@ public class SuperUser implements Serializable{
 		this.pswd = pswd;
 	}
 
+	/**
+	 * @return the name of the superuser
+	 */
 	public String getName() {
 		return Name;
 	}
 
-
-
+	/**
+	 * @return the id of the superuser
+	 */
 	public String getID() {
 		return ID;
 	}
 
-
-
+	/**
+	 * @return the password of the superuser
+	 */
 	public String getPswd() {
 		return pswd;
 	}
 
+	/**
+	 * @return the reference to the database
+	 */
 	public Database getDatabase() {
 		return this.db;
 	}
 	
 	/**
-	 * @return
+	 * method to create warehouse
+	 * 
+	 * @param room_Name
+	 * @param room_ID
+	 * @param admin_name
+	 * @param admin_ID
+	 * @param admin_pswd
 	 */
 	public void createWarehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
 		// TODO implement here
@@ -55,7 +80,13 @@ public class SuperUser implements Serializable{
 	}
 
 	/**
-	 * @return
+	 * method to create store
+	 * 
+	 * @param room_Name
+	 * @param room_ID
+	 * @param admin_name
+	 * @param admin_ID
+	 * @param admin_pswd
 	 */
 	public void createStore(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
 		// check ID already created , throw exception.
@@ -64,7 +95,9 @@ public class SuperUser implements Serializable{
 	}
 
 	/**
-	 * @param warehouse 
+	 * Adds store reference to warehouse and warehouse reference to store.
+	 * 
+	 * @param warehouse
 	 * @param store
 	 */
 	public void updateLink(Warehouse warehouse, Store store) {
@@ -73,6 +106,8 @@ public class SuperUser implements Serializable{
 	}
 
 	/**
+	 * Creates new warehouse administrator.
+	 * 
 	 * @param username 
 	 * @param password 
 	 * @param warehouse
@@ -82,6 +117,8 @@ public class SuperUser implements Serializable{
 	}
 
 	/**
+	 * Creates new store administrator.
+	 * 
 	 * @param username 
 	 * @param password 
 	 * @param store

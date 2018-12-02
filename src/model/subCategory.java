@@ -5,13 +5,16 @@ import java.util.LinkedList;
 
 public class subCategory implements Serializable{
 	
-	/**
-	 * 
-	 */
+	/** Generated serial version ID */
+	private static final long serialVersionUID = -4999229528849581448L;
+
+	/** The name of the subcategory */
 	private String subCategoryName;
 	
+	/** The description of the subcategory */
 	private String Description;
 	
+	/** The parent category of the subcategory */
 	private Category parent;
 	
 	/**
@@ -30,31 +33,56 @@ public class subCategory implements Serializable{
 		this.products = new LinkedList<Product>();
 	}
 	
+	/**
+	 * Update the name and description of the subcategory.
+	 * @param name
+	 * @param Description
+	 */
 	public void update(String name, String Description) {
 		this.subCategoryName = name;
 		this.Description = Description;
 	}
 	
+	/**
+	 * Adds the provided product to the list of products.
+	 * @param product
+	 */
 	public void addProduct(Product product) {
 		this.products.add(product);
 	}
 
+	/**
+	 * Deletes the provided product from the list of products.
+	 * @param product
+	 */
 	public void deleteProduct(Product product) {
 		this.products.remove(product);
 	}
 	
+	/**
+	 * @return the name of the subcategory
+	 */
 	public String toString() {
 		return this.subCategoryName;
 	}
 	
+	/**
+	 * @return the list of all products
+	 */
 	public LinkedList<Product> getProducts() {
 		return this.products;
 	}
 	
+	/**
+	 * @return the name of the subcategory
+	 */
 	public String getName() {
 		return this.subCategoryName;
 	}
 
+	/**
+	 * @return the description of the subcategory
+	 */
 	public String getDescription() {
 		return this.Description;
 	}
