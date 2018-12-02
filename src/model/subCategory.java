@@ -58,4 +58,8 @@ public class subCategory implements Serializable{
 	public String getDescription() {
 		return this.Description;
 	}
+	
+	public Category getParent() {
+		return this.parent;
+	}
 }

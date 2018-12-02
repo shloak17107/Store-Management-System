@@ -66,9 +66,9 @@ public class Database implements Serializable{
 	}
 	
 	public Warehouse getWarehouse(String W_ID) {
-//		iterate through warehouses and
-//		return the warehouse with W_ID
-		return null;
+	//		iterate through warehouses and
+	//		return the warehouse with W_ID
+			return null;
 	}
 	
 	public LinkedList<Store> getStores() {

@@ -50,7 +50,7 @@ public class SuperUser implements Serializable{
 	 */
 	public void createWarehouse(String room_Name, String room_ID, String admin_name, String admin_ID, String admin_pswd) {
 		// TODO implement here
-		Warehouse new_warehouse = new Warehouse(room_Name, room_ID, admin_name, admin_ID, admin_pswd);
+		Warehouse new_warehouse = new Warehouse(room_Name, room_ID, admin_name, admin_ID, admin_pswd, this.getDatabase());
 		db.add_warehouse(new_warehouse);
 	}
 

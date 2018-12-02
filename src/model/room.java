@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public class room implements Serializable{
+public abstract class room implements Serializable{
 	
 	/**
 	 * 
@@ -85,4 +85,11 @@ public class room implements Serializable{
 	public LinkedList<Category> getCategories() {
 		return this.Categories;
 	}
+	
+	public String getID() {
+		return this.ID;
+	}
+	
+	public abstract String orderProducts(Product product);
+	
 }
