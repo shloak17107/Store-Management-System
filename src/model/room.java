@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public class room implements Serializable{
+public abstract class room implements Serializable{
 	
 	/** Generated serial version ID */
 	private static final long serialVersionUID = -4634684587662534383L;
@@ -161,4 +161,11 @@ public class room implements Serializable{
 	public LinkedList<Category> getCategories() {
 		return this.Categories;
 	}
+	
+	public String getID() {
+		return this.ID;
+	}
+	
+	public abstract String orderProducts(Product product);
+	
 }

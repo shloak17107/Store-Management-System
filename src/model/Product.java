@@ -98,7 +98,7 @@ public class Product implements Serializable{
 	 * @return the stock of the product.
 	 */
 	public int getUnits() {
-		return Units;
+		return this.Units;
 	}
 
 	/**
@@ -143,6 +143,17 @@ public class Product implements Serializable{
 	 */
 	public void reduceUnits(int units) {
 		this.Units -= units;
+		if (this.Units <= 0) {
+			this.parent.getParent().getParent().orderProducts(this);
+		}
+	}
+	
+	public void reduceWarehouse(int units) {
+		this.Units -= units;
+	}
+	
+	public void incUnits() {
+		this.Units += this.calculateEOQ();
 	}
 
 }

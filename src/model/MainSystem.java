@@ -33,6 +33,24 @@ public class MainSystem {
 	 */
 	public MainSystem() throws ClassNotFoundException, IOException {
 		db = this.deserialize();
+		LinkedList<Warehouse> allWarehouses = db.getWarehouses();
+		for (int i=0; i<allWarehouses.size();i++) {
+			Warehouse w = allWarehouses.get(i);
+			String city = w.getCity();
+			if (city.equals("Delhi")) {
+				Warehouse.Delhi.add(w);
+			}
+			else if (city.equals("Banglore")) {
+				Warehouse.Banglore.add(w);
+			}
+			else {
+				Warehouse.Patna.add(w);
+			}
+			Warehouse.all_cities.add(Warehouse.Delhi);
+			Warehouse.all_cities.add(Warehouse.Patna);
+			Warehouse.all_cities.add(Warehouse.Banglore);
+			
+		}
 		super_user = db.getSuperUser();
 	}
 

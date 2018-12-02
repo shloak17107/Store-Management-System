@@ -102,4 +102,9 @@ public class Category implements Serializable{
 	public String getDescription() {
 		return this.Description;
 	}
+	
+	public room getParent() {
+		return this.parent;
+	}
+	
 }

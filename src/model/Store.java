@@ -60,4 +60,13 @@ public class Store extends room implements Serializable{
 		// TODO implement here
 	}
 
+	@Override
+	public String orderProducts(Product product) {
+		// TODO Auto-generated method stub
+		String response = this.warehouse.orderProducts(product);
+		if (response.equals("successful")) {
+		product.incUnits();}
+		return "successful";
+	}
+
 }

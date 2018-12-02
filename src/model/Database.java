@@ -86,7 +86,9 @@ public class Database implements Serializable{
 	 */
 	public Warehouse getWarehouse(String W_ID) {
 		//TODO implement here
-		return null;
+		//iterate through warehouses and
+		//return the warehouse with W_ID
+			return null;
 	}
 	
 	/**
